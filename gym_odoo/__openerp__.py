@@ -7,7 +7,9 @@
 	""",
 
     'description': """
-        Te permite llevar el control de los miembros del gimnasio de una manera sencilla y mínima
+        Te permite llevar el control de los miembros del gimnasio de una manera sencilla y mínima.
+        
+        El proyecto esta aún en una etapa muy temprana de desarrollo y este modulo no es usable y/o instalable.
     """,
 
     'author': "SIISCAD",
