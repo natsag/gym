@@ -1,19 +1,18 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "gym",
+    'name': "miGym_dev",
 
     'summary': """
-	Modulo de gestión de membresias de gimnasio.        
-	""",
+        Administre su gimnasio con odoo.
+        Versión de desarrollo.
+        """,
 
     'description': """
-        Te permite llevar el control de los miembros del gimnasio de una manera sencilla y mínima.
-        
-        El proyecto esta aún en una etapa muy temprana de desarrollo y este modulo no es usable y/o instalable.
+        Aplicación para control de suscripciones en gimnasios
     """,
 
     'author': "SIISCAD",
-    'website': "http://siiscad.com.mx",
+    'website': "http://www.siiscad.com.mx",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/master/openerp/addons/base/module/module_data.xml
@@ -28,8 +27,10 @@
     'data': [
         # 'security/ir.model.access.csv',
         'views/views.xml',
+        'views/miembros.xml',
+        'views/suscripciones.xml',
+        'views/opciones.xml',
         'views/templates.xml',
-	'views/miembros.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
