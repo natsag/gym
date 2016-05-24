@@ -1,1 +1,65 @@
 
+<openerp>
+	<data>
+		<record model="ir.actions.act_window" id="suscripciones_action">
+			<field name="name">Suscripciones</field>
+			<field name="res_model">gym.suscripcion</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		<record model="ir.ui.view" id="view_suscripciones_form">
+			<field name="name">gym.suscripcion.form</field>
+			<field name="model">gym.suscripcion</field>
+			<field name="arch" type="xml">
+				<form string="Suscripciones">
+					<sheet>
+						<group>
+							<field name="miembro"/>
+							<field name="tipo_suscripcion" />
+							<field name="inicio"/>
+						</group>
+						
+						<field name="pago"/>
+						
+						<group>
+							<group class="oe_edit_only">
+								<field name="var_tipo_pago" nolabel="True"/>
+								<field name="var_cantidad"/>
+							</group>
+							<button string="Agregar" type="object" name="button_agregar_pago_parcial"/>
+							<group class="oe_subtotal_footer oe_right">
+								<field name="monto" string="monto"/>
+								<field name="cantidad" class="oe_subtotal_footer_separator"/>
+								<field name="cantidad" style="margin-top: 10px"/>
+							</group>
+						</group>
+
+					</sheet>
+				</form>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="view_suscripciones_tree">
+			<field name="name">gym.suscripcion.tree</field>
+			<field name="model">gym.suscripcion</field>
+			<field name="arch" type="xml">
+				<tree string="Miembros">
+					<field name="miembro"/>
+					<field name="tipo_suscripcion"/>
+					<field name="inicio"/>
+				</tree>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="view_pago_tree">
+			<field name="name">gym.pago.tree</field>
+			<field name="model">gym.pago</field>
+			<field name="arch" type="xml">
+				<tree string="pagos" create="false">
+					<field name="tipo_pago"/>
+					<field name="cantidad"/>
+				</tree>
+			</field>
+		</record>
+		<menuitem id="suscripciones" name="Suscripciones" action="suscripciones_action"/>
+
+	</data>
+</openerp>
+
