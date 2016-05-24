@@ -1,0 +1,71 @@
+<openerp>
+	<data>
+
+		<record model="ir.actions.act_window" id="tipos_de_suscripciones_action">
+			<field name="name">Tipos de suscripciones</field>
+			<field name="res_model">gym.tipo_suscripcion</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		<record model="ir.ui.view" id="view_tipo_suscripcion_tree">
+			<field name="name">gym.tipo_suscripcion.tree</field>
+			<field name="model">gym.tipo_suscripcion</field>
+			<field name="arch" type="xml">
+				<tree string="Tipos de suscripcion">
+					<field name="name"/>
+					<field name="descripcion"/>
+					<field name="costo"/>
+					<field name="activo"/>
+				</tree>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="view_tipo_suscripcion_form">
+			<field name="name">gym.tipo_suscripcion.form</field>
+			<field name="model">gym.tipo_suscripcion</field>
+			<field name="arch" type="xml">
+				<form string="Tipo de suscripción">
+					<sheet>
+						<group>
+							<group>
+								<field name="name"/>
+								<field name="descripcion"/>
+							</group>
+							<group>
+								<field name="duracion"/>
+								<field name="unidad_duracion"/>
+								<field name="activo"/>
+
+							</group>
+							<group>
+								<field name="costo"/>
+								<field name="aplica_para" widget="many2many_checkboxes"/>
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		<record model="ir.actions.act_window" id="tipos_de_miembros_action">
+			<field name="name">Tipos de miembros</field>
+			<field name="res_model">gym.tipo_miembro</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		<record model="ir.actions.act_window" id="tipos_de_pagos_action">
+			<field name="name">pago</field>
+			<field name="res_model">gym.tipo_pago</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		<record model="ir.actions.act_window" id="rfc_action">
+			<field name="name">Datos fiscales de miembros</field>
+			<field name="res_model">gym.rfc</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		<menuitem id="opciones" name="Opciones"/>
+		<menuitem id="membresias" name="membresias" parent="opciones"/>
+		<menuitem name="Tipos de suscripción" id="tipos_de_suscripcion" parent="membresias" action="tipos_de_suscripciones_action"/>
+		<menuitem name="Tipos de miembros" id="tipos_de_miembros" parent="membresias" action="tipos_de_miembros_action"/>
+		<menuitem id="pagos" name="pagos" parent="opciones"/>
+		<menuitem name="Tipos de pagos" id="tipos_de_pagos" parent="pagos" action="tipos_de_pagos_action"/>
+		<menuitem name="Datos fiscales de miembros" id="rfc" parent="pagos" action="rfc_action"/>
+
+	</data>
+</openerp>
