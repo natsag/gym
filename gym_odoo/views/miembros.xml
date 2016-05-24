@@ -1,35 +1,48 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <openerp>
-    <data>
-        <!-- window action -->
-        <!--
-            The following tag is an action definition for a "window action",
-            that is an action opening a view or a set of views
-        -->
-        <record model="ir.actions.act_window" id="miembros_list_action">
-            <field name="name">Miembros</field>
-            <field name="res_model">gym.miembro</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
-            <field name="help" type="html">
-                <p class="oe_view_nocontent_create">Agregar al primer miembro
-                </p>
+	<data>
+		<record model="ir.actions.act_window" id="miembros_action">
+			<field name="name">Miembros</field>
+			<field name="res_model">gym.miembro</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		
+		<record model="ir.ui.view" id="view_miembros_form">
+            <field name="name">gym.miembro.form</field>
+            <field name="model">gym.miembro</field>
+            <field name="arch" type="xml">
+                <form string="Miembros">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="telefono"/>
+                            <field name="email"/>
+                            <field name="direccion"/>
+                            <field name="facturar"/>
+                            <field name="RFC"/>
+                            <field name="tipo_miembro"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="view_miembros_tree">
+            <field name="name">gym.miembro.tree</field>
+            <field name="model">gym.miembro</field>
+            <field name="arch" type="xml">
+                <tree string="Miembros">
+                            <field name="name"/>
+                            <field name="telefono"/>
+                            <field name="email"/>
+                </tree>
             </field>
         </record>
 
-        <!-- top level menu: no parent -->
-        <menuitem id="main_miembros_menu" name="miembros"/>
-        <!-- A first level in the left side menu is needed
-             before using action= attribute -->
-        <menuitem id="miembros_menu" name="lista"
-                  parent="main_miembros_menu"/>
-        <!-- the following menuitem should appear *after*
-             its parent openacademy_menu and *after* its
-             action course_list_action -->
-        <menuitem id="miembros2_menu" name="Miembros" parent="miembros_menu"
-                  action="miembros_list_action"/>
-        <!-- Full id location:
-             action="openacademy.course_list_action"
-             It is not required when it is the same module -->
-    </data>
+
+		
+		
+		<menuitem id="miembros" name="Miembros" action="miembros_action"/>
+
+	</data>
 </openerp>
+
